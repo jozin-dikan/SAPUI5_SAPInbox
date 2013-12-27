@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+   		<script src="phonegap.js"></script>
+		<script src="resources/sap-ui-core.js"
+				id="sap-ui-bootstrap"
+				data-sap-ui-libs="sap.m"
+				data-sap-ui-theme="sap_bluecrystal">
+		</script>
+		<!-- only load the mobile lib "sap.m" and the "sap_mvi" theme -->
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		
+
+		<script>				
+				sap.ui.localResources("sapinbox");		
+				$.sap.require("sap.ui.core.EventBus");  
+				$.sap.log.error("FYI: Startuji");
+				
+				// set i18n model
+				var i18nModel = new sap.ui.model.resource.ResourceModel({
+					bundleUrl : "i18n/i18n.properties"
+				});
+				sap.ui.getCore().setModel(i18nModel, "i18n");
+				
+				var i18_bundle = sap.ui.getCore().getModel("i18n").getResourceBundle();
+				
+				var oModel = null;
+				var oSplitApp = new sap.m.SplitApp("mySplitApp", {});
+				var masterPage = sap.ui.view({id:"sapinbox.ListView", viewName:"sapinbox.ListView", type:sap.ui.core.mvc.ViewType.JS});
+				var detailPage = sap.ui.view({id:"sapinbox.DetailView", viewName:"sapinbox.DetailView", type:sap.ui.core.mvc.ViewType.JS});
+				
+				
+				
+				oSplitApp.addMasterPage(masterPage);
+				oSplitApp.addDetailPage(detailPage);
+							
+										
+				oSplitApp.setInitialMaster("sapinbox.ListView");
+				oSplitApp.setInitialDetail("sapinbox.DetailView");
+			
+				oSplitApp.setDefaultTransitionNameDetail("fade");
+				
+				var list =sap.ui.getCore().byId("iditemlist");
+				var items = list.getItems();
+				list.setSelectedItem(items[0], true);
+				
+				oSplitApp.placeAt("content");							
+		</script>			
+	</head>
+	<body class="sapUiBody" role="application">
+		<div id="content"></div>
+	</body>
+</html>

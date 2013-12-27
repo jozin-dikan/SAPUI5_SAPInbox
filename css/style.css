@@ -1,0 +1,15 @@
+.listview_itemtext {
+	color: blue;
+	font: italic bold
+}
+
+.createdby_date {
+	color: black;
+}
+
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
+}
