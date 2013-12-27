@@ -42,8 +42,9 @@ sap.ui
 						'Access-Control-Allow-Origin: *.local.com';
 						'Access-Control-Allow-Headers: X-KEY';
 
-						var url = this
-								.getUrl("/sap/opu/odata/sap/ZSAPINBOX_SRV");
+						//var url = this
+						//		.getUrl("/sap/opu/odata/sap/ZSAPINBOX_SRV");
+						var url = "http://czprguxdv37.ness.com:50000/sap/opu/odata/sap/ZSAPINBOX_SRV";
 						oModel = new sap.ui.model.odata.ODataModel(url, true,
 								"JDIKAN_1", "veslo1");
 
