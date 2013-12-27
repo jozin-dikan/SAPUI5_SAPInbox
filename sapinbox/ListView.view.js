@@ -24,6 +24,7 @@ sap.ui
 					 */
 
 					getUrl : function(sUrl) {
+						alert("hostname:" + window.location.hostname);
 						if (sUrl == "")
 							return sUrl;
 						if (window.location.hostname == "localhost") {

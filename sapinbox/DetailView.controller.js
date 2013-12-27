@@ -45,8 +45,13 @@ sap.ui.controller("sapinbox.DetailView", {
 	ActionButtonPress : function(oControlEvent) {
 		var actionId = "1";
 		actionId = oControlEvent.getSource().data("actionId");
-		var odata = oControlEvent.getSource().getParent().getBindingContext()
-	}
+		var wfitem = oControlEvent.getSource().getParent().getBindingContext().getObject();
+		wfitem.SelectedOperation = actionId;
+		oModel.update(oControlEvent.getSource().getParent().getBindingContext().sPath,wfitem,null, function(){
+	 		alert("Update successful");
+	 	},function(){
+			alert("Update failed");});
+	},
 
 /**
  * Called when the View has been rendered (so its HTML is part of the document).
